@@ -1,0 +1,301 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{speaker?.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="speaker-detail">
+  
+  
+  
+  <!--div text-center *ngIf="speaker">
+    <img [src]="speaker.profilePic" [alt]="speaker.name"><br>
+
+    <button ion-button icon-only clear small color="twitter">
+      <ion-icon name="logo-twitter"></ion-icon>
+    </button>
+    <button ion-button icon-only clear small color="github">
+      <ion-icon name="logo-github"></ion-icon>
+    </button>
+    <button ion-button icon-only clear small color="instagram">
+      <ion-icon name="logo-instagram"></ion-icon>
+    </button>
+  </div>-->
+  <!--
+<ion-item>   <label class="item-input-wrapper">
+      <input type="text" placeholder="Email">
+    </label>
+    <button (click)="showPrompt()" class="button button-small">
+      Submit
+    </button></ion-item>
+-->
+<h2 ion-text class="orange">Decedant Information</h2>
+
+
+<ion-item>
+  <ion-label  stacked> Full Name:</ion-label>
+  <ion-input placeholder="First, Last" [(ngModel)]="fullname"></ion-input>
+</ion-item>
+
+
+<ion-grid>
+<ion-row>
+  <ion-col>
+<ion-list>
+  <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select [(ngModel)]="gender" interface="popover">
+      <ion-option value="m">Male</ion-option>
+      <ion-option value="f">Female</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+
+<ion-item>
+ <ion-label fixed>Date of Birth</ion-label>
+<ion-datetime [(ngModel)]="dateOfBirth" displayFormat="MMMM DD, YY"></ion-datetime>
+</ion-item>
+  </ion-col>
+
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-item>
+  <ion-label  stacked><span >County of Birth</span></ion-label>
+  <ion-input placeholder="ex..Dallas" [(ngModel)]="birthcounty"></ion-input>
+</ion-item>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-list>
+<ion-item>
+  <ion-label stacked>Birth State</ion-label>
+  <ion-select [(ngModel)]="stateofbirth" >
+   <ion-option value="AL">Alabama</ion-option>
+	<ion-option value="AK">Alaska</ion-option>
+	<ion-option value="AZ">Arizona</ion-option>
+	<ion-option value="AR">Arkansas</ion-option>
+	<ion-option value="CA">California</ion-option>
+	<ion-option value="CO">Colorado</ion-option>
+	<ion-option value="CT">Connecticut</ion-option>
+	<ion-option value="DE">Delaware</ion-option>
+	<ion-option value="DC">District Of Columbia</ion-option>
+	<ion-option value="FL">Florida</ion-option>
+	<ion-option value="GA">Georgia</ion-option>
+	<ion-option value="HI">Hawaii</ion-option>
+	<ion-option value="ID">Idaho</ion-option>
+	<ion-option value="IL">Illinois</ion-option>
+	<ion-option value="IN">Indiana</ion-option>
+	<ion-option value="IA">Iowa</ion-option>
+	<ion-option value="KS">Kansas</ion-option>
+	<ion-option value="KY">Kentucky</ion-option>
+	<ion-option value="LA">Louisiana</ion-option>
+	<ion-option value="ME">Maine</ion-option>
+	<ion-option value="MD">Maryland</ion-option>
+	<ion-option value="MA">Massachusetts</ion-option>
+	<ion-option value="MI">Michigan</ion-option>
+	<ion-option value="MN">Minnesota</ion-option>
+	<ion-option value="MS">Mississippi</ion-option>
+	<ion-option value="MO">Missouri</ion-option>
+	<ion-option value="MT">Montana</ion-option>
+	<ion-option value="NE">Nebraska</ion-option>
+	<ion-option value="NV">Nevada</ion-option>
+	<ion-option value="NH">New Hampshire</ion-option>
+	<ion-option value="NJ">New Jersey</ion-option>
+	<ion-option value="NM">New Mexico</ion-option>
+	<ion-option value="NY">New York</ion-option>
+	<ion-option value="NC">North Carolina</ion-option>
+	<ion-option value="ND">North Dakota</ion-option>
+	<ion-option value="OH">Ohio</ion-option>
+	<ion-option value="OK">Oklahoma</ion-option>
+	<ion-option value="OR">Oregon</ion-option>
+	<ion-option value="PA">Pennsylvania</ion-option>
+	<ion-option value="RI">Rhode Island</ion-option>
+	<ion-option value="SC">South Carolina</ion-option>
+	<ion-option value="SD">South Dakota</ion-option>
+	<ion-option value="TN">Tennessee</ion-option>
+	<ion-option value="TX">Texas</ion-option>
+	<ion-option value="UT">Utah</ion-option>
+	<ion-option value="VT">Vermont</ion-option>
+	<ion-option value="VA">Virginia</ion-option>
+	<ion-option value="WA">Washington</ion-option>
+	<ion-option value="WV">West Virginia</ion-option>
+	<ion-option value="WI">Wisconsin</ion-option>
+	<ion-option value="WY">Wyoming</ion-option>
+  </ion-select>
+</ion-item>
+    </ion-list>
+  </ion-col>
+</ion-row>
+
+
+
+
+<!--Next Row -->
+<ion-row>
+
+
+</ion-row>
+<ion-label  stacked><span class="orange">Certificate Info</span></ion-label>
+
+
+<ion-row>
+
+  <ion-col>
+
+<ion-item>
+ <ion-label stacked>Date of Death</ion-label>
+<ion-datetime  (ngModel)="dateOfDeath" displayFormat="MM DD, YY"></ion-datetime>
+</ion-item>
+  </ion-col>
+<ion-col> 
+<ion-item>
+  <ion-label stacked>County of Death</ion-label>
+  <ion-input type="Website Test" (ngModel)="countyOfDeath"></ion-input>
+</ion-item>
+</ion-col>
+
+</ion-row>
+
+<ion-row>
+  <ion-col>
+  <ion-list>
+  <ion-item>
+    <ion-label stacked>Place Of Death</ion-label>
+    <ion-select [(ngModel)]="POD">
+      <ion-option value="inhos">Inpatient-Hospital</ion-option>
+      <ion-option value="doa">Dead On Arrival</ion-option>
+        <ion-option value="decendants">Decendant's Home</ion-option>
+      <ion-option value="emerg">Emergency Room/Outpatient</ion-option>
+        <ion-option value="hospice">Hospice Facility</ion-option>
+      <ion-option value="longterm">Nursing Home/Long Term Care</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+</ion-col>
+</ion-row>
+
+
+<ion-row> 
+<ion-col> 
+
+  <ion-item>
+  <ion-label  stacked>Address of Death</ion-label>
+  <ion-input placeholder="ex.. 123 HospitalPlace" [(ngModel)]="deathaddr"></ion-input>
+</ion-item>
+</ion-col>
+
+</ion-row>
+
+
+
+<ion-row>
+  <ion-col>
+<ion-list>
+  <ion-item>
+    <ion-label stacked>Education Level</ion-label>
+    <ion-select [(ngModel)]="edu" multiple="true">
+      <ion-option value="eightn">8th Grade of Less</ion-option>
+      <ion-option value="high">Some Highschool</ion-option>
+        <ion-option value="decendants">Highschool Grad/GED</ion-option>
+      <ion-option value="emerg">Some College</ion-option>
+        <ion-option value="hospice">Associate Degree</ion-option>
+      <ion-option value="longterm">Bachelors Degree</ion-option>
+         <ion-option value="hospice">Master Degree</ion-option>
+      <ion-option value="longterm">Doctoroate Degree</ion-option>
+          <ion-option value="longterm">Unknown</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+  </ion-col>
+</ion-row>
+
+
+<ion-row>
+  <ion-col>
+<ion-list>
+  <ion-item>
+    <ion-label stacked>Hispanic Origin</ion-label>
+    <ion-select [(ngModel)]="hispanic">
+      <ion-option value="eightn">No</ion-option>
+      <ion-option value="high">Yes, Mexican American Chicano</ion-option>
+        <ion-option value="decendants">Yes, Puerto Rican</ion-option>
+      <ion-option value="emerg">Yes, Cuban</ion-option>
+        <ion-option value="hospice">Yes, Other</ion-option>
+      <ion-option value="longterm">Unknown</ion-option>
+  
+    </ion-select>
+  </ion-item>
+</ion-list>
+  </ion-col>
+</ion-row>
+
+
+
+
+<ion-row>
+  <ion-col>
+<ion-list>
+  <ion-item>
+    <ion-label class="labelOver" stacked>Race Origin</ion-label>
+<ion-select [(ngModel)]="race">
+    <ion-option>Mixed Race</ion-option>
+    <ion-option>Arctic (Siberian, Eskimo)</ion-option>
+    <ion-option>Caucasian (European)</ion-option>
+    <ion-option>Caucasian (Indian)</ion-option>
+    <ion-option>Caucasian (Middle East)</ion-option>
+    <ion-option>Caucasian (North African, Other)</ion-option>
+    <ion-option>Indigenous Australian</ion-option>
+    <ion-option>Native American</ion-option>
+    <ion-option>North East Asian (Mongol, Tibetan, Korean Japanese, etc)</ion-option>
+    <ion-option>Pacific (Polynesian, Micronesian, etc)</ion-option>
+    <ion-option>South East Asian (Chinese, Thai, Malay, Filipino, etc)</ion-option>
+    <ion-option>West African, Bushmen, Ethiopian</ion-option>
+    <ion-option>Other Race</ion-option>
+</ion-select>
+
+  </ion-item>
+</ion-list>
+  </ion-col>
+</ion-row>
+
+
+
+</ion-grid>
+
+
+
+
+
+<ion-item>
+  <ion-label>Born in the US?</ion-label>
+  <ion-checkbox></ion-checkbox>
+</ion-item> 
+<ion-item>
+  <ion-label>United States Armed Forces?</ion-label>
+  <ion-checkbox></ion-checkbox>
+</ion-item>
+<ion-item>
+  <ion-label>Wish to Complete In Person</ion-label>
+  <ion-toggle></ion-toggle>
+</ion-item>
+<ion-item>
+  <ion-label>{{fullname}}</ion-label>
+ 
+</ion-item>
+
+<h2 ion-text color="primary">Funeral Home Info:</h2>
+
+
+<!--iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(speaker?.about)' width="100%" height="360" frameborder="0">
+    </iframe>-->
+
+    <button ion-item (click)="showLog()">Go to Funeral Home Information</button>
+</ion-content>
+
+

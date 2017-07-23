@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>About</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="about-header">
+    <img src="assets/img/ionic-logo-white.jpg" alt="ionic logo">
+  </div>
+  <div padding class="about-info">
+    <h4>FH DataCollector</h4>
+
+    <ion-list no-lines>
+     <!-- <ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label>Date</ion-label>
+        <ion-datetime displayFormat="MMM DD, YYYY" max="2056" [(ngModel)]="conferenceDate"></ion-datetime>
+      </ion-item>
+-->
+      <ion-item>
+        <ion-icon name="pin" item-start></ion-icon>
+        <ion-label>Location</ion-label>
+        <ion-select>
+          <ion-option value="iowa" selected>Des Moines, IA</ion-option>
+     
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <p>
+     This is a prototype application built to begin researching the funeral home initial data collection.
+    </p>
+  </div>
+</ion-content>

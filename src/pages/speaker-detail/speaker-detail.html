@@ -33,8 +33,8 @@
 
 
 <ion-item>
-  <ion-label  stacked> Full Name:</ion-label>
-  <ion-input placeholder="First, Last" [(ngModel)]="fullname"></ion-input>
+  <ion-label  stacked> What is the name of your Loved One?</ion-label>
+  <ion-input placeholder="First name, Last name" [(ngModel)]="fullname"></ion-input>
 </ion-item>
 
 
@@ -43,7 +43,7 @@
   <ion-col>
 <ion-list>
   <ion-item>
-    <ion-label>Gender</ion-label>
+    <ion-label>Man or Woman?</ion-label>
     <ion-select [(ngModel)]="gender" interface="popover">
       <ion-option value="m">Male</ion-option>
       <ion-option value="f">Female</ion-option>
@@ -56,7 +56,7 @@
   <ion-col>
 
 <ion-item>
- <ion-label fixed>Date of Birth</ion-label>
+ <ion-label stackedv>When was {{fullname}} born?</ion-label>
 <ion-datetime [(ngModel)]="dateOfBirth" displayFormat="MMMM DD, YY"></ion-datetime>
 </ion-item>
   </ion-col>
@@ -65,7 +65,7 @@
 <ion-row>
   <ion-col>
     <ion-item>
-  <ion-label  stacked><span >County of Birth</span></ion-label>
+  <ion-label  stacked><span >Which County was {{fullname}} Born?</span></ion-label>
   <ion-input placeholder="ex..Dallas" [(ngModel)]="birthcounty"></ion-input>
 </ion-item>
   </ion-col>
@@ -74,7 +74,7 @@
   <ion-col>
     <ion-list>
 <ion-item>
-  <ion-label stacked>Birth State</ion-label>
+  <ion-label stacked>{{fullname}} was born in.</ion-label>
   <ion-select [(ngModel)]="stateofbirth" >
    <ion-option value="AL">Alabama</ion-option>
 	<ion-option value="AK">Alaska</ion-option>

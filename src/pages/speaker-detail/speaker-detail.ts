@@ -22,7 +22,7 @@ import {Storage} from '@ionic/storage';
 export class SpeakerDetailPage {
   speaker: any;
   gender: any;
-  fullname: any;
+  public fullname: any;
   dateOfBirth: any;
   birthCountry: any;
   stateofbirth: any;
@@ -39,7 +39,12 @@ export class SpeakerDetailPage {
 
 showLog()
 {
- this.navCtrl.push(FhPage)
+  let data = 
+  {
+    fullname: this.fullname,
+    gender: this.gender
+  }
+ this.navCtrl.push(FhPage, data)
 
 }
 

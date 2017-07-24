@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SpeakerListPage } from "../speaker-list/speaker-list"
+
 /**
  * Generated class for the FhPage page.
  *
@@ -10,6 +11,8 @@ import { SpeakerListPage } from "../speaker-list/speaker-list"
 
 declare let callLambda: any;
 declare let dataJson: any;
+
+
 
 @IonicPage()
 @Component({
@@ -69,7 +72,11 @@ insertRecord()
     "disposition": this.disposition, 
     "crematory": this.crematory, 
     "fhdirector": this.fhdirector, 
-    "physicianName": this.physicianName
+    "physicianName": this.physicianName,
+    "fullname": this.navParams.get('fullname'),
+    "gender": this.navParams.get('gender')
+
+  
 
   }
   callLambda("POST", jsonBuilder);

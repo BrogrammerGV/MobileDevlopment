@@ -1,0 +1,58 @@
+{
+
+  "schedule": [{
+    "date": "2047-05-17",
+    "groups": [{
+      "time": "8:00 am",
+      "sessions": [{
+        "name": "Initial Contact",
+        "timeStart": "8:00 am",
+        "timeEnd": "9:00 am",
+        "location": "Dave's Office",
+        "tracks": ["meeting"],
+        "id": "1"
+      }]
+    },
+    {
+      "time": "10:00 am",
+      "sessions": [{
+        "name": "Gathering",
+        "timeStart": "10:00 am",
+        "timeEnd": "11:00 am",
+        "location": "Chapel",
+        "tracks": ["family"],
+        "id": "1"
+      }]
+    }
+    ]
+  }],
+
+
+  "speakers": [{
+    "name": "Background",
+    "profilePic": "assets/img/speakers/bear.jpg",
+    "percentage": "0",
+    "about": "https://docs.google.com/forms/d/e/1FAIpQLScBYfE9aL3WqdZrHthjNYUGqdbpQMapJk6W7ZxLRnoRZmkS0g/viewform?embedded=true",
+    "location": "Everywhere",
+    "email": "burt@example.com",
+    "phone": "+1-541-754-3010",
+    "id": "1"
+  }],
+
+
+  "map": [{
+    "name": "Monona Terrace Convention Center",
+    "lat": 43.071584,
+    "lng": -89.380120,
+    "center": true
+  }, {
+    "name": "Ionic HQ",
+    "lat": 43.074395,
+    "lng": -89.381056
+  }, {
+    "name": "Afterparty - Brocach Irish Pub",
+    "lat": 43.07336,
+    "lng": -89.38335
+  }]
+
+}

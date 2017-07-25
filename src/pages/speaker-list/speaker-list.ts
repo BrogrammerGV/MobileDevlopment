@@ -5,8 +5,10 @@ import {
   ActionSheet,
   ActionSheetController,
   Config,
-  NavController
+  NavController,
+  ModalController
 } from 'ionic-angular';
+
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { ConferenceData } from '../../providers/conference-data';
@@ -14,7 +16,8 @@ import { ConferenceData } from '../../providers/conference-data';
 import { SessionDetailPage } from '../session-detail/session-detail';
 import { SpeakerDetailPage } from '../speaker-detail/speaker-detail';
 import { SchedulePage } from '../schedule/schedule';
-import {Storage} from '@ionic/storage';
+import { Storage } from '@ionic/storage';
+import {ModalPage} from '../modal/modal';
 
 declare let callLambda: any;
 declare let dataJson: any;
@@ -34,14 +37,13 @@ export class SpeakerListPage {
     public confData: ConferenceData,
     public config: Config,
     public inAppBrowser: InAppBrowser, 
-    private storage: Storage
+    private storage: Storage,
+    public modalCtrl: ModalController
   ) {}
 
   ionViewDidLoad() {
+    //loadingData
     callLambda("GET");
-    this.confData.getSpeakers().subscribe((speakers: any[]) => {
-      this.speakers = speakers;
-    });
   }
 
 ionViewWillEnter()
@@ -54,12 +56,10 @@ ionViewWillEnter()
 
 }
 
-  goToSessionDetail(session: any) {
-    this.navCtrl.push(SessionDetailPage, { sessionId: session.id });
-  }
+  
 
-  goToSpeakerDetail(speaker: any) {
-    this.navCtrl.push(SpeakerDetailPage, { speakerId: speaker.id });
+  goToMainData() {
+    this.navCtrl.push(SpeakerDetailPage);
   }
 
   goToSpeakerTwitter(speaker: any) {
@@ -69,68 +69,21 @@ ionViewWillEnter()
     );
   }
 
-  openSpeakerShare(speaker: any) {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Share ' + speaker.name,
-      buttons: [
-        {
-          text: 'Copy Link',
-          handler: () => {
-            console.log(
-              'Copy link clicked on https://twitter.com/' + speaker.twitter
-            );
-            if (
-              (window as any)['cordova'] &&
-              (window as any)['cordova'].plugins.clipboard
-            ) {
-              (window as any)['cordova'].plugins.clipboard.copy(
-                'https://twitter.com/' + speaker.twitter
-              );
-            }
-          }
-        },
-        {
-          text: 'Share via ...'
-        },
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        }
-      ]
-    });
-
-    actionSheet.present();
-  }
-
-  openContact(speaker: any) {
-    let mode = this.config.get('mode');
-
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'Contact ' + speaker.name,
-      buttons: [
-        {
-          text: `Email ( ${speaker.email} )`,
-          icon: mode !== 'ios' ? 'mail' : null,
-          handler: () => {
-            window.open('mailto:' + speaker.email);
-          }
-        },
-        {
-          text: `Call ( ${speaker.phone} )`,
-          icon: mode !== 'ios' ? 'call' : null,
-          handler: () => {
-            window.open('tel:' + speaker.phone);
-          }
-        }
-      ]
-    });
-
-    actionSheet.present();
-  }
 
 goDirectToFH()
 {
   this.navCtrl.push(FhPage);
 }
+     
+     
+     //Modal Code
+      openModal()
+      {
+        let myModal = this.modalCtrl.create(ModalPage);
+        myModal.present();
+      }
+
+
 
 }
+

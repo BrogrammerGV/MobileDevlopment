@@ -22,7 +22,7 @@ import {Storage} from '@ionic/storage';
 export class SpeakerDetailPage {
   speaker: any;
   gender: any;
-  public fullname: any;
+  fullname: any;
   dateOfBirth: any;
   birthCountry: any;
   stateofbirth: any;
@@ -37,13 +37,25 @@ export class SpeakerDetailPage {
    public navParams: NavParams,public alertCtrl: AlertController, private storage: Storage) {
  }
 
-showLog()
+gotToNextDataPage()
 {
+
+  //Data Builder to Send to Submission Page
   let data = 
   {
     fullname: this.fullname,
-    gender: this.gender
+    gender: this.gender,
+    dateOfBirth: this.dateOfBirth,
+    birthCountry: this.birthCountry,
+    stateofbirth: this.stateofbirth,
+    dateOfDeath: this.dateOfDeath,
+    countryOfDeath: this.countryOfDeath,
+    deathaddr: this.deathaddr,
+    edu: this.edu,
+    hispanic: this.hispanic,
+    race: this.race
   }
+ 
  this.navCtrl.push(FhPage, data)
 
 }
@@ -55,19 +67,6 @@ ionViewDidLoad()
 }
 
   ionViewWillEnter() {
-    this.dataProvider.load().subscribe((data: any) => {
-      if (data && data.speakers) {
-
-
-        for (const speaker of data.speakers) {
-          if (speaker && speaker.id === this.navParams.data.speakerId) {
-            this.speaker = speaker;
-            break;
-          }
-        }
-      }
-    });
-
     this.storage.get('loggedIn').then((val) => {
     console.log('Are You Logged In?:', val);
     if(val != "Yes")

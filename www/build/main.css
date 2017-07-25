@@ -39724,6 +39724,18 @@ page-speaker-list .speaker-card ion-card-content {
   text-align: center;
 }
 
+.square {
+  width: 80% !important;
+  height: 0 !important;
+  padding: 0 0 80% 0 !important;
+  margin: auto;
+}
+
+.btext {
+  padding: 25px;
+  margin: 0 auto;
+}
+
 .tabbar {
   -webkit-box-pack: center;
   -webkit-justify-content: center;

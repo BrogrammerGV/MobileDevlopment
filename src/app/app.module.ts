@@ -28,7 +28,7 @@ import { SupportPage } from '../pages/support/support';
 import { FhPage } from '../pages/fh/fh';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
-
+import {ModalPage} from '../pages/modal/modal'
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { UserData } from '../providers/user-data';
     TabsPage,
     TutorialPage,
     SupportPage,
-    FhPage
+    FhPage,
+    ModalPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,8 @@ import { UserData } from '../providers/user-data';
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
         { component: SignupPage, name: 'SignupPage', segment: 'signup' },
-        { component: FhPage, name: 'FhPage', segment: 'fh' }
+        { component: FhPage, name: 'FhPage', segment: 'fh' },
+        { component: ModalPage, name: 'ModalPage', segment: 'modal' }
       ]
     }),BrowserModule, 
     
@@ -90,7 +92,8 @@ import { UserData } from '../providers/user-data';
     TabsPage,
     TutorialPage,
     SupportPage,
-    FhPage
+    FhPage,
+    ModalPage
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },

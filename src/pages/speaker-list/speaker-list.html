@@ -9,41 +9,31 @@
 
 <ion-content class="outer-content speaker-list">
    <div class="about-header headerTitle">
-    <img src="assets/img/shirley.png" alt="ionic logo">
+    <!--><img src="assets/img/shirley.png" alt="ionic logo">-->
     <h3> Begin Data Collection Below </h3>
   </div>
-  <ion-list [virtualScroll]="speakers">
-    <ion-grid fixed>
-      <ion-row align-items-stretch>
-
-        <ion-col col-12 col-md-2 align-self-stretch align-self-center *virtualItem="let speaker" approxItemHeight="100px">
-
-          <ion-card class="speaker-card">
-            <ion-card-header>
-              <button ion-item detail-none (click)="goToSpeakerDetail(speaker)">
-                <h3 class="center" >Background</h3>
-                <!--ion-avatar item-start>
-                  <img [src]="speaker.profilePic" alt="Speaker profile pic">
-                </ion-avatar>
-                {{speaker.name}}
--->
-            <ion-icon class="checkmark" name='checkmark-circle'></ion-icon>
-
-              </button>
-            </ion-card-header>
-
-            <ion-card-content class="outer-content">
-              <ion-list class="center">
-                {{speaker.percentage}}% Complete
-              </ion-list>
-            </ion-card-content>
+  
 
 
-          </ion-card>
 
-        </ion-col>
-      </ion-row>  
-    </ion-grid>
-  </ion-list>
-  <button (click)="goDirectToFH()" ion-button full> Go To Funeral Home Information</button>
+<ion-grid>
+  <ion-row justify-content-start>
+    <ion-col col-6>
+   <button (click)="goToMainData()" ion-button full class="square"><span><br /><br /> About Section</span> </button>
+    </ion-col>
+    <ion-col col-6>
+     <button (click)="openModal()" ion-button full class="square"><span> <br /><br /> Next Section</span></button>
+    </ion-col>
+  </ion-row>
+   <ion-row justify-content-start>
+    <ion-col col-6>
+   <button (click)="openModal()" ion-button full class="square"><br /><br />Culture & Life </button>
+    </ion-col>
+    <ion-col col-6>
+     <button (click)="goDirectToFH()" ion-button full class="square"><span class="btext"><br /><br />FH Info</span></button>
+    
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
 </ion-content>

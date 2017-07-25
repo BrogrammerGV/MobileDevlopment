@@ -60,15 +60,17 @@ ionViewCanEnter()
 makeDataJSON()
 {
   console.log(this.disposition + ' ' + this.crematory + this.fhdirector + ' ' + this.physicianName);
-
 }
 
 
 
 insertRecord()
-{var jsonBuilder = 
+{
+  //Inserting Record into AWS S3
+  var jsonBuilder = 
   {
-    "dispositioni": this.dispositioni,
+   
+   "dispositioni": this.dispositioni,
     "disposition": this.disposition, 
     "crematory": this.crematory, 
     "fhdirector": this.fhdirector, 
@@ -76,23 +78,19 @@ insertRecord()
     "fullname": this.navParams.get('fullname'),
     "gender": this.navParams.get('gender')
 
-  
-
   }
+  
   callLambda("POST", jsonBuilder);
-
   this.navCtrl.push(SpeakerListPage);
 }
 
 getRecord()
 {
   console.log("getRecordStarted**")
-
-
-this.disposition = dataJson.disposition;
-this.crematory=dataJson.crematory;
-this.fhdirector=dataJson.fhdirector;
-this.physicianName=dataJson.physicianName;
+    this.disposition = dataJson.disposition;
+    this.crematory=dataJson.crematory;
+    this.fhdirector=dataJson.fhdirector;
+    this.physicianName=dataJson.physicianName;
 }
 
 loadFinal()

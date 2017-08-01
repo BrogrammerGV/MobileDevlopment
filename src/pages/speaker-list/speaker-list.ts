@@ -6,7 +6,8 @@ import {
   ActionSheetController,
   Config,
   NavController,
-  ModalController
+  ModalController,
+  AlertController
 } from 'ionic-angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -38,18 +39,24 @@ export class SpeakerListPage {
     public config: Config,
     public inAppBrowser: InAppBrowser, 
     private storage: Storage,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    public alertCtrl: AlertController
   ) {}
 
   ionViewDidLoad() {
-    //loadingData
+
+  this.storage.get('firstName').then((val) => {
+    if(val = null)
+    this.showPrompt();
+  });
+
     callLambda("GET");
+
   }
 
 ionViewWillEnter()
 {
     this.storage.get('loggedIn').then((val) => {
-    console.log('Are You Logged In?:', val);
     if(val != "Yes")
     this.navCtrl.push(SchedulePage);
   });
@@ -84,6 +91,40 @@ goDirectToFH()
       }
 
 
+showPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: 'Start',
+      message: "Enter the name of your loved one who has passed",
+      inputs: [
+        {
+          name: 'firstName',
+          placeholder: 'First Name'
+        },
+        {
+          name: 'lastName',
+          placeholder: 'Last Name'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+
+            this.storage.set('firstName', data.firstName);
+            this.storage.set('lastName', data.lastName);
+            console.log('Saved clicked' + data.firstName);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 }
 

@@ -14,15 +14,31 @@ import { IonicPage, NavController, NavParams, ModalController, ViewController } 
 })
 export class ModalPage {
 
+ 
+modalDat: string = this.navParams.get('title');
   constructor(
     public navCtrl: NavController, 
   public navParams: NavParams, 
   public modalCtrl: ModalController,
-  public viewCtrl: ViewController) {
+  public viewCtrl: ViewController,
+  ) {
   }
 
 
+ionViewWillEnter()
+{
+ if(this.modalDat=="intro")
+ {
+console.log("ModalData: " + this.modalDat);
+this.modalDat = null;
+ }
+
+
+}
+
 closeModal(){
+
+
   this.viewCtrl.dismiss();
 }
 

@@ -18,7 +18,6 @@ import {Storage} from '@ionic/storage';
 
 
 
-
 export class SpeakerDetailPage {
   speaker: any;
   gender: any;
@@ -32,6 +31,8 @@ export class SpeakerDetailPage {
   edu: any;
   hispanic: any;
   race: any;
+  NameToUse: string;
+
 
   constructor(public dataProvider: ConferenceData, public navCtrl: NavController,
    public navParams: NavParams,public alertCtrl: AlertController, private storage: Storage) {
@@ -60,17 +61,15 @@ gotToNextDataPage()
 
 }
 
-ionViewDidLoad()
-{
-
-
-}
-
   ionViewWillEnter() {
     this.storage.get('loggedIn').then((val) => {
-    console.log('Are You Logged In?:', val);
     if(val != "Yes")
     this.navCtrl.push(SchedulePage);
+  });
+
+this.storage.get('firstName').then((val1) => {
+  console.log("VAL: " + val1);
+  this.NameToUse = val1;
   });
 
   }
@@ -80,34 +79,6 @@ ionViewDidLoad()
   }
 
 
-
-  showPrompt() {
-    let prompt = this.alertCtrl.create({
-      title: 'Login',
-      message: "Enter a name for this new album you're so keen on adding",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            console.log('Saved clicked');
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
 }
 
 

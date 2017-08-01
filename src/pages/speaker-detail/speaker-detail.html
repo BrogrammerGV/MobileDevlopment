@@ -29,11 +29,11 @@
       Submit
     </button></ion-item>
 -->
-<h2 ion-text class="orange">Decedant Information</h2>
+<h2 ion-text class="orange">Please tell us more about {{NameToUse}}</h2>
 
 
 <ion-item>
-  <ion-label  stacked> What is the name of your Loved One?</ion-label>
+  <ion-label  stacked> What is {{NameToUse}}'s lega name?</ion-label>
   <ion-input placeholder="First name, Last name" [(ngModel)]="fullname"></ion-input>
 </ion-item>
 
@@ -43,7 +43,7 @@
   <ion-col>
 <ion-list>
   <ion-item>
-    <ion-label>Man or Woman?</ion-label>
+    <ion-label>Confirm {{NameToUse}}'s Gender</ion-label>
     <ion-select [(ngModel)]="gender" interface="popover">
       <ion-option value="m">Male</ion-option>
       <ion-option value="f">Female</ion-option>
@@ -56,7 +56,7 @@
   <ion-col>
 
 <ion-item>
- <ion-label stackedv>When was {{fullname}} born?</ion-label>
+ <ion-label stackedv>When was {{NameToUse}} born?</ion-label>
 <ion-datetime [(ngModel)]="dateOfBirth" displayFormat="MMMM DD, YY"></ion-datetime>
 </ion-item>
   </ion-col>
@@ -65,7 +65,7 @@
 <ion-row>
   <ion-col>
     <ion-item>
-  <ion-label  stacked><span >Which County was {{fullname}} Born?</span></ion-label>
+  <ion-label  stacked><span >Which County was {{NameToUse}} Born?</span></ion-label>
   <ion-input placeholder="ex..Dallas" [(ngModel)]="birthcounty"></ion-input>
 </ion-item>
   </ion-col>
@@ -74,7 +74,7 @@
   <ion-col>
     <ion-list>
 <ion-item>
-  <ion-label stacked>{{fullname}} was born in.</ion-label>
+  <ion-label stacked>{{NameToUse}} was born in.</ion-label>
   <ion-select [(ngModel)]="stateofbirth" >
    <ion-option value="AL">Alabama</ion-option>
 	<ion-option value="AK">Alaska</ion-option>
@@ -141,7 +141,7 @@
 
 
 </ion-row>
-<ion-label  stacked><span class="orange">Certificate Info</span></ion-label>
+<ion-label  stacked><span class="orange">{{NameToUse}}'s Certificate Info</span></ion-label>
 
 
 <ion-row>
@@ -149,13 +149,15 @@
   <ion-col>
 
 <ion-item>
- <ion-label stacked>Date of Death</ion-label>
+ <ion-label stacked>When Did {{NameToUse}} die?</ion-label>
 <ion-datetime  (ngModel)="dateOfDeath" displayFormat="MM DD, YY"></ion-datetime>
 </ion-item>
   </ion-col>
+</ion-row>
+<ion-row>
 <ion-col> 
 <ion-item>
-  <ion-label stacked>County of Death</ion-label>
+  <ion-label stacked>Where did {{NameToUse}} die?</ion-label>
   <ion-input type="Website Test" (ngModel)="countyOfDeath"></ion-input>
 </ion-item>
 </ion-col>
@@ -166,7 +168,7 @@
   <ion-col>
   <ion-list>
   <ion-item>
-    <ion-label stacked>Place Of Death</ion-label>
+    <ion-label stacked>Specifics?</ion-label>
     <ion-select [(ngModel)]="POD">
       <ion-option value="inhos">Inpatient-Hospital</ion-option>
       <ion-option value="doa">Dead On Arrival</ion-option>
@@ -198,7 +200,7 @@
   <ion-col>
 <ion-list>
   <ion-item>
-    <ion-label stacked>Education Level</ion-label>
+    <ion-label stacked>What was {{NameToUse}}'s education Level</ion-label>
     <ion-select [(ngModel)]="edu" multiple="true">
       <ion-option value="eightn">8th Grade of Less</ion-option>
       <ion-option value="high">Some Highschool</ion-option>
@@ -280,14 +282,8 @@
   <ion-label>United States Armed Forces?</ion-label>
   <ion-checkbox></ion-checkbox>
 </ion-item>
-<ion-item>
-  <ion-label>Wish to Complete In Person</ion-label>
-  <ion-toggle></ion-toggle>
-</ion-item>
-<ion-item>
-  <ion-label>{{fullname}}</ion-label>
- 
-</ion-item>
+
+
 
 <h2 ion-text color="primary">Funeral Home Info:</h2>
 
